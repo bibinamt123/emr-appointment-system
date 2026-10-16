@@ -1,0 +1,1016 @@
+
+/* ========================================
+   EMR HEALTHCARE APPOINTMENT SYSTEM
+   Modern responsive UI
+======================================== */
+
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #172b4d;
+  background: #f4f7fb;
+
+  --primary: #0f766e;
+  --primary-dark: #115e59;
+  --primary-light: #ccfbf1;
+
+  --navy: #142d4e;
+  --text: #172b4d;
+  --muted: #64748b;
+
+  --background: #f4f7fb;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+
+  --success-bg: #dcfce7;
+  --success-text: #166534;
+
+  --warning-bg: #fef3c7;
+  --warning-text: #92400e;
+
+  --danger-bg: #fee2e2;
+  --danger-text: #b91c1c;
+
+  --info-bg: #dbeafe;
+  --info-text: #1d4ed8;
+
+  --shadow-sm: 0 2px 8px rgba(15, 35, 65, 0.04);
+  --shadow-md: 0 8px 24px rgba(15, 35, 65, 0.07);
+  --shadow-lg: 0 16px 40px rgba(15, 35, 65, 0.10);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+}
+
+/* ========================================
+   RESET AND GLOBAL STYLES
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.58;
+  cursor: not-allowed;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--navy);
+  line-height: 1.3;
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 750;
+  letter-spacing: -0.7px;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+p {
+  overflow-wrap: anywhere;
+}
+
+/* ========================================
+   LOGIN PAGE
+======================================== */
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 18px;
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(20, 184, 166, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(59, 130, 246, 0.09),
+      transparent 35%
+    ),
+    #f4f7fb;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 38px;
+  background: var(--surface);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 22px;
+  box-shadow: var(--shadow-lg);
+}
+
+.logo {
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  color: #ffffff;
+
+  border-radius: 18px;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+
+  box-shadow: 0 8px 18px rgba(15, 118, 110, 0.18);
+}
+
+.login-card h1 {
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ========================================
+   FORMS AND INPUTS
+======================================== */
+
+label {
+  display: block;
+  margin: 16px 0 7px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 11px 13px;
+
+  color: var(--text);
+  background: #ffffff;
+
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+
+  font-size: 14px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+}
+
+select option {
+  color: var(--text);
+  background: #ffffff;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: #94a3b8;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.15);
+}
+
+input[type="checkbox"] {
+  display: inline-block;
+  width: 17px;
+  min-height: 17px;
+  height: 17px;
+  padding: 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+input[type="date"],
+input[type="datetime-local"],
+input[type="time"] {
+  min-height: 46px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text);
+  caret-color: var(--primary);
+  box-shadow: 0 0 0 1000px #ffffff inset;
+}
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 44px;
+  margin-top: 20px;
+  padding: 11px 18px;
+
+  color: #ffffff;
+  background: var(--primary);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+
+  box-shadow: 0 3px 8px rgba(15, 118, 110, 0.10);
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  background: var(--primary-dark);
+  box-shadow: 0 5px 14px rgba(15, 118, 110, 0.17);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(20, 184, 166, 0.35);
+  outline-offset: 3px;
+}
+
+.login-card button {
+  width: 100%;
+  margin-top: 24px;
+  min-height: 48px;
+  font-size: 15px;
+}
+
+/* ========================================
+   MESSAGES AND FOOTER
+======================================== */
+
+.message {
+  margin-top: 18px;
+  padding: 13px 16px;
+
+  color: var(--success-text);
+  background: var(--success-bg);
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-sm);
+
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.message.error-message,
+.error-message {
+  color: var(--danger-text);
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.footer {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ========================================
+   DASHBOARD LAYOUT
+======================================== */
+
+.dashboard-page {
+  min-height: 100vh;
+  padding-bottom: 20px;
+  background: var(--background);
+  color: var(--text);
+}
+
+.dashboard-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  min-height: 78px;
+  padding: 13px 6%;
+
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 3px 12px rgba(15, 35, 65, 0.025);
+  backdrop-filter: blur(12px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+
+.small-logo {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  margin: 0;
+  border-radius: 13px;
+  font-size: 14px;
+}
+
+.brand h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.brand p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.logout-button {
+  flex-shrink: 0;
+  width: auto;
+  min-height: 40px;
+  margin: 0;
+  padding: 9px 16px;
+
+  color: #b91c1c;
+  background: #ffffff;
+  border: 1px solid #fecaca;
+  box-shadow: none;
+}
+
+.logout-button:hover:not(:disabled) {
+  color: #991b1b;
+  background: #fef2f2;
+  border-color: #fca5a5;
+  box-shadow: none;
+}
+
+.welcome-section {
+  padding: 36px 6% 26px;
+  background:
+    linear-gradient(
+      120deg,
+      rgba(204, 251, 241, 0.4),
+      rgba(244, 247, 251, 0.2) 60%
+    );
+}
+
+.welcome-section h1 {
+  margin: 5px 0 8px;
+}
+
+.welcome-section > p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+/* ========================================
+   PANELS AND SECTIONS
+======================================== */
+
+.panel {
+  width: calc(100% - 48px);
+  max-width: 1200px;
+  margin: 0 auto 25px;
+  padding: 28px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+
+  scroll-margin-top: 100px;
+}
+
+.panel h2 {
+  margin: 0 0 9px;
+  font-size: 21px;
+  letter-spacing: -0.3px;
+}
+
+.panel h3 {
+  margin-bottom: 10px;
+}
+
+.panel-description {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.dashboard-section {
+  scroll-margin-top: 100px;
+}
+
+.dashboard-section > .panel {
+  width: 100%;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  margin: 0;
+}
+
+.empty-state {
+  padding: 32px 18px;
+  color: var(--muted);
+  text-align: center;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: var(--radius-md);
+}
+
+/* ========================================
+   BOOKING FORMS
+======================================== */
+
+.booking-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 22px;
+  row-gap: 4px;
+}
+
+.booking-form label {
+  align-self: end;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  min-width: 0;
+}
+
+.booking-form button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  width: auto;
+  min-width: 170px;
+  margin-top: 22px;
+}
+
+.booking-form > h3,
+.booking-form > .panel-description {
+  grid-column: 1 / -1;
+}
+
+.refresh-button {
+  width: auto;
+  min-height: 40px;
+  margin: 10px 0 6px;
+  padding: 9px 15px;
+
+  color: var(--primary);
+  background: #ffffff;
+  border: 1px solid #99f6e4;
+  box-shadow: none;
+}
+
+.refresh-button:hover:not(:disabled) {
+  color: var(--primary-dark);
+  background: #f0fdfa;
+  border-color: #5eead4;
+  box-shadow: none;
+}
+
+/* ========================================
+   APPOINTMENT LIST AND CARDS
+======================================== */
+
+.appointment-list {
+  display: grid;
+  gap: 16px;
+}
+
+.appointment-card {
+  min-width: 0;
+  padding: 21px;
+
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  box-shadow: 0 2px 8px rgba(15, 35, 65, 0.025);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.appointment-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-sm);
+}
+
+.appointment-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.appointment-reason {
+  color: var(--navy);
+  font-size: 16px;
+  font-weight: 750;
+}
+
+.appointment-card p {
+  margin: 8px 0;
+  color: #52637a;
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.appointment-card strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ========================================
+   APPOINTMENT STATUS LABELS
+======================================== */
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 11px;
+  border-radius: 999px;
+
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid transparent;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.45px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.status-pending {
+  color: var(--warning-text);
+  background: var(--warning-bg);
+}
+
+.status-confirmed {
+  color: var(--info-text);
+  background: var(--info-bg);
+}
+
+.status-arrived {
+  color: #6d28d9;
+  background: #ede9fe;
+}
+
+.status-completed {
+  color: var(--success-text);
+  background: var(--success-bg);
+}
+
+.status-cancelled {
+  color: #991b1b;
+  background: var(--danger-bg);
+}
+
+/* ========================================
+   APPOINTMENT ACTION BUTTONS
+======================================== */
+
+.appointment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 17px;
+  padding-top: 14px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.appointment-actions button {
+  width: auto;
+  min-height: 38px;
+  margin: 0;
+  padding: 8px 13px;
+  font-size: 12px;
+  box-shadow: none;
+}
+
+.appointment-actions .cancel-button {
+  color: #b91c1c;
+  background: #ffffff;
+  border: 1px solid #fecaca;
+}
+
+.appointment-actions .cancel-button:hover:not(:disabled) {
+  color: #991b1b;
+  background: #fef2f2;
+  border-color: #fca5a5;
+  box-shadow: none;
+}
+
+/* ========================================
+   TIME SLOT SELECTION
+======================================== */
+
+.slots-heading {
+  margin-top: 24px;
+  margin-bottom: 10px;
+  color: var(--navy);
+  font-size: 17px;
+}
+
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
+  gap: 11px;
+  margin-top: 14px;
+}
+
+.slot-choice {
+  width: 100%;
+  min-height: 43px;
+  margin: 0;
+  padding: 10px 8px;
+
+  color: var(--primary);
+  background: #f0fdfa;
+  border: 1px solid #99f6e4;
+  border-radius: var(--radius-sm);
+  box-shadow: none;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.slot-choice:hover:not(:disabled),
+.slot-choice.selected {
+  color: #ffffff;
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 4px 10px rgba(15, 118, 110, 0.14);
+}
+
+.slot-choice:focus-visible {
+  outline: 3px solid rgba(20, 184, 166, 0.35);
+  outline-offset: 3px;
+}
+
+/* ========================================
+   RECEPTIONIST DASHBOARD
+======================================== */
+
+.dashboard-page .slot-grid .appointment-card {
+  min-width: 0;
+}
+
+.dashboard-page .slot-grid .appointment-card h3 {
+  margin-top: 0;
+  overflow-wrap: anywhere;
+}
+
+.dashboard-page .slot-grid .appointment-card button {
+  width: 100%;
+  margin-top: 14px;
+}
+
+/* Keep receptionist dashboard summary cards compact. */
+.dashboard-page .panel .slot-grid .appointment-card {
+  background: #ffffff;
+}
+
+.dashboard-page .appointment-card h3 {
+  color: var(--navy);
+}
+
+/* ========================================
+   DASHBOARD MESSAGES AND FOOTER
+======================================== */
+
+.dashboard-message {
+  width: calc(100% - 48px);
+  max-width: 1200px;
+  margin: 0 auto 22px;
+}
+
+.dashboard-footer {
+  padding: 20px 16px;
+  margin-top: 28px;
+  border-top: 1px solid var(--border);
+  background: #ffffff;
+}
+
+/* ========================================
+   RESPONSIVE TABLET LAYOUT
+======================================== */
+
+@media (max-width: 900px) {
+  .dashboard-header {
+    padding-right: 4%;
+    padding-left: 4%;
+  }
+
+  .welcome-section {
+    padding-right: 4%;
+    padding-left: 4%;
+  }
+
+  .panel {
+    width: calc(100% - 32px);
+    padding: 23px;
+  }
+
+  .dashboard-message {
+    width: calc(100% - 32px);
+  }
+
+  .booking-form {
+    column-gap: 16px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE MOBILE LAYOUT
+======================================== */
+
+@media (max-width: 600px) {
+  .page {
+    padding: 18px 12px;
+  }
+
+  .login-card {
+    padding: 27px 22px;
+    border-radius: 17px;
+  }
+
+  .logo {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+  }
+
+  .dashboard-header {
+    position: static;
+    min-height: 70px;
+    padding: 13px 16px;
+    gap: 10px;
+  }
+
+  .brand {
+    gap: 9px;
+  }
+
+  .small-logo {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+  }
+
+  .brand h2 {
+    font-size: 14px;
+  }
+
+  .brand p {
+    font-size: 11px;
+  }
+
+  .logout-button {
+    min-height: 37px;
+    padding: 8px 11px;
+    font-size: 12px;
+  }
+
+  .welcome-section {
+    padding: 27px 19px 22px;
+  }
+
+  .welcome-section h1 {
+    font-size: 26px;
+  }
+
+  .welcome-section > p:last-child {
+    font-size: 13px;
+  }
+
+  .panel {
+    width: calc(100% - 24px);
+    margin: 0 auto 18px;
+    padding: 19px;
+    border-radius: 12px;
+  }
+
+  .panel h2 {
+    font-size: 19px;
+  }
+
+  .booking-form {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .booking-form button {
+    grid-column: auto;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .appointment-card {
+    padding: 16px;
+  }
+
+  .appointment-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .appointment-actions {
+    gap: 8px;
+  }
+
+  .appointment-actions button {
+    flex: 1 1 120px;
+  }
+
+  .dashboard-message {
+    width: calc(100% - 24px);
+    margin-bottom: 18px;
+  }
+
+  .slot-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .slot-choice {
+    min-height: 42px;
+    font-size: 12px;
+  }
+
+  .dashboard-footer {
+    font-size: 11px;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE SCREENS
+======================================== */
+
+@media (max-width: 360px) {
+  .login-card {
+    padding: 22px 17px;
+  }
+
+  .brand h2 {
+    font-size: 12px;
+  }
+
+  .brand p {
+    font-size: 10px;
+  }
+
+  .logout-button {
+    padding: 7px 9px;
+  }
+
+  .panel {
+    padding: 15px;
+  }
+
+  .appointment-actions button {
+    flex-basis: 100%;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY: REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
